@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4 overlay">
+    <div class="row">
+        <div class="col-md-9">
+            <h5 class="mb-1">{{post.title}}</h5>
+            <p class="mb-1">{{post.text}}</p>
+            <p class="mb-1">{{post.created_date}}</p>
+            <a href="/">Назад</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
