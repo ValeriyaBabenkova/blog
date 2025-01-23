@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'post_detail.html' post.id %}">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label class="text-label">Название заметки</label>
+    <input type="text" class="add_post_name"  placeholder="Введите название заметки">
+    <label class="form-label">Текст заметки</label>
+    <input type="text" class="add_post"  placeholder="Введите текст заметки">
+  </div>
+  <button type="submit" class="btn btn-primary">Добавить заметку</button>
+</form>
+
+{% endblock %}
