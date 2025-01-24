@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'feedback' %}">
+  {% csrf_token %}
+  <div>
+    <label class="form-label" for="text_feedback">Текст заметки</label>
+    <textarea class="form-control"  name="text" id="text_feedback" placeholder="Введите текст отзыва"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Добавить отзыв</button>
+</form>
+
+{% endblock %}
