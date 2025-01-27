@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-        <!-- Фильтрация -->
-
-
-        <!-- Колонка для постов -->
+<div class="row mt-4">
         <div class="col-md-9">
             <h4>Посты</h4>
+            {% for post in posts %}
             <div class="list-group">
-                {% for post in posts %}
                 <div class="post-item">
                     <h5 class="mb-1"><a href="{% url 'post_detail' post.id %}">{{post.title}}</a></h5>
                     <h6 class="mb-1">
@@ -18,39 +14,18 @@
                         {% endif %}
                     </h6>
                     <div class="post-date"><a href="{% url 'post_detail' post.id %}">{{post.created_date}}</a></div>
-                    <!--                </div>-->
-                    <!--                <div class="post-item">-->
-                    <!--                    <h5 class="mb-1">Заголовок поста 2</h5>-->
-                    <!--                    <p class="mb-1">Краткое описание поста 2...</p>-->
-                    <!--                    <div class="post-date">Дата публикации: 02.01.2023</div>-->
-                    <!--                </div>-->
-                    <!--                <div class="post-item">-->
-                    <!--                    <h5 class="mb-1">Заголовок поста 3</h5>-->
-                    <!--                    <p class="mb-1">Краткое описание поста 3...</p>-->
-                    <!--                    <div class="post-date">Дата публикации: 03.01.2023</div>-->
-                    <!--                </div>-->
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
 
         <div class="col-md-3">
             <h4>Категории</h4>
-            {% for category in categories %}:
-            <p><a href="?category={{ category.id }}?">{{ category.title}}</a></p>
+            {% for category in categories %}
+            <p><a href="?category={{ category.id }}">{{ category.title}}</a></p>
             {% endfor %}
-<!--            <form>-->
-<!--                <div class="mb-3">-->
-<!--                    <label for="category" class="form-label">Категория</label>-->
-<!--                    <select class="form-select" id="category">-->
-<!--                        <option selected>Все категории</option>-->
-<!--                        <option value="1">Категория 1</option>-->
-<!--                        <option value="2">Категория 2</option>-->
-<!--                        <option value="3">Категория 3</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--                <button type="submit" class="btn btn-primary">Применить</button>-->
-<!--            </form>-->
+
         </div>
+</div>
 
 {% endblock %}
